@@ -1,9 +1,0 @@
-/**
- * skylark-domx-animates - The skylark animates library for dom api extension.
- * @author Hudaokeji Co.,Ltd
- * @version v0.9.0
- * @link www.skylarkjs.org
- * @license MIT
- */
-define(["skylark-langx/langx","skylark-domx-browser","skylark-domx-noder","skylark-domx-geom","skylark-domx-styler","skylark-domx-eventer","./animates"],function(e,i,r,n,t,s,o){var a,l,p,c=i.normalizeCssEvent("AnimationEnd"),m={};return m[a=i.normalizeCssProperty("animation-name")]=m[l=i.normalizeCssProperty("animation-duration")]=m[i.normalizeCssProperty("animation-delay")]=m[p=i.normalizeCssProperty("animation-timing-function")]="",o.animate=function(i,r,f,d,u,g){var x,y,k,h={},P=[],b="",v=this,z=!1,T=!1;if(e.isPlainObject(f)&&(d=f.easing,u=f.complete,g=f.delay,f=f.duration),e.isString(f)&&(f=o.speeds[f]),void 0===f&&(f=o.speeds.normal),f/=1e3,o.off&&(f=0),e.isFunction(d)?(u=d,eace="swing"):d=d||"swing",g?g/=1e3:g=0,e.isString(properties))h[a]=properties,h[l]=f+"s",h[p]=d,y=c;else{for(x in properties){var C=properties[x];if(supportedTransforms.test(x))b+=x+"("+C+") ";else{if("scrollTop"===x&&(T=!0),"clip"==x&&e.isPlainObject(C)){if(h[x]="rect("+C.top+"px,"+C.right+"px,"+C.bottom+"px,"+C.left+"px)","auto"==t.css(i,"clip")){var j=n.size(i);t.css(i,"clip","rect(0px,"+j.width+"px,"+j.height+"px,0px)")}}else h[x]=C;P.push(e.dasherize(x))}}y=transitionEnd}return b&&(h[transform]=b,P.push(transform)),f>0&&e.isPlainObject(properties)&&(h[transitionProperty]=P.join(", "),h[transitionDuration]=f+"s",h[transitionDelay]=g+"s",h[transitionTiming]=d),k=function(e){if(z=!0,e){if(e.target!==e.currentTarget)return;s.off(e.target,y,k)}else s.off(i,c,k);t.css(i,m),u&&u.call(this)},f>0&&(s.on(i,y,k),e.debounce(function(){z||k.call(v)},1e3*(f+g)+25)()),i.clientLeft,t.css(i,h),f<=0&&e.debounce(function(){z||k.call(v)},0)(),T&&scrollToTop(i,properties.scrollTop,f,u),this}});
-//# sourceMappingURL=sourcemaps/animate.js.map

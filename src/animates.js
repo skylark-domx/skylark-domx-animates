@@ -4,10 +4,10 @@ define([
 ], function(skylark,langx) {
 
     function animates() {
-        return fx;
+        return animates;
     }
 
-    langx.mixin(fx, {
+    langx.mixin(animates, {
         off: false,
         speeds: {
             normal: 400,

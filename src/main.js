@@ -1,5 +1,6 @@
 define([
 	"./animates",
+    "./animation",
     "./animate"
 ],function(animates){
 

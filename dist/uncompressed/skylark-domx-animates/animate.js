@@ -24,4 +24,4 @@ define([
     }
     
     return animates.animate = animate;
- 
+ });

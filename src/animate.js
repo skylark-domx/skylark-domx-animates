@@ -6,16 +6,22 @@ define([
 ], function(langx, styler, eventer,animates) {
 
 
-    function animate(elm,className) {
-        if (animates.animateBaseClass) {
-          className = animates.animateBaseClass + " " + className;
+    function animate(elm,keyframes/*className*/,options) {
+        if (langx.isString(keyframes)) {
+            let className = keyframes;
+            if (animates.animateBaseClass) {
+              className = animates.animateBaseClass + " " + className;
+            }
+            styler.addClass(elm,className);
+            eventer.one(elm,animates.animationEnd, function() {
+                styler.removeClass(elm,className);
+            });
+            return this;
+        } else {
+            return elm.animate(keyframes,options);
         }
-        styler.addClass(elm,className);
-        eventer.one(elm,animates.animationEnd, function() {
-            styler.removeClass(elm,className);
-        });
-        return this;
+
     }
     
     return animates.animate = animate;
-});
+ 

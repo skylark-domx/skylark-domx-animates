@@ -5,5 +5,5 @@
  * @link www.skylarkjs.org
  * @license MIT
  */
-define(["./animates","./animation","./animate"],function(n){return n});
+define(["./animates","skylark-domx-velm","skylark-domx-query","./animation","./animate"],function(a,e,n){return e.delegate(["animate"],a),n.fn.animate=n.wraps.wrapper_every_act(a.animate,a),a});
 //# sourceMappingURL=sourcemaps/main.js.map
